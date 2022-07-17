@@ -1,3 +1,4 @@
+import { NofoundComponent } from './nofound/nofound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,10 +6,11 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'page1', component: Page1Component},
-  {path: 'page2', component: Page2Component},
-
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {path: 'dashboard', component: DashboardComponent, title: 'Dashboard'},
+  {path: 'page1', component: Page1Component, title: 'Page 1'},
+  {path: 'page2', component: Page2Component, title: 'Page 2'},
+  {path: '**', component: NofoundComponent, title: '404'}
 ];
 
 @NgModule({

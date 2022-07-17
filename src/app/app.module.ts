@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { Page2Component } from './page2/page2.component';
 import { Page1Component } from './page1/page1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NofoundComponent } from './nofound/nofound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Page2Component,
     Page1Component,
-    DashboardComponent
+    DashboardComponent,
+    NofoundComponent
   ],
   imports: [
     BrowserModule,
