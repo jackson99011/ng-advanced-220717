@@ -17,8 +17,8 @@
         <h6 class="m-0 font-weight-bold text-primary">
           Type: {{type}}, Name: {{name}}, Key: {{key}}
         </h6>
-        <a class="btn btn-google text-gray-500"  role="button">+</a>
-        <a  class="btn btn-google text-gray-500" role="button">-</a>
+        <button class="btn btn-primary btn-sm" (click)="inc(1)">+</button>
+        <button class="btn btn-danger btn-sm" (click)="inc(-1)">-</button>
       </div>
       <div class="card-body">
         <p class="text-gray-100 p-3 bg-dark m-0">.text-gray-100</p>
