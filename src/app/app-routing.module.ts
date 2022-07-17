@@ -3,7 +3,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { NofoundComponent } from './nofound/nofound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 
@@ -20,13 +20,16 @@ const routes: Routes = [
         path: 'utilities',
         loadChildren: () => import('./utilities/utilities.module').then(m => m.UtilitiesModule)
       },
-      {path: '**', component: NofoundComponent, title: '404'}
+      // {path: '**', component: NofoundComponent, title: '404'}
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    //preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
