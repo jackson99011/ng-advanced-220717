@@ -11,6 +11,8 @@ import { ColorComponent } from './utilities/color/color.component';
 import { BorderComponent } from './utilities/border/border.component';
 import { AnimationsComponent } from './utilities/animations/animations.component';
 import { OtherComponent } from './utilities/other/other.component';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { OtherComponent } from './utilities/other/other.component';
     ColorComponent,
     BorderComponent,
     AnimationsComponent,
-    OtherComponent
+    OtherComponent,
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
