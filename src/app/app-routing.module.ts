@@ -22,7 +22,8 @@ const routes: Routes = [
       {path: 'page2', component: Page2Component, title: 'Page 2'},
       {path: 'utilities',
         children: [
-          {path: 'colors', component: ColorComponent, title: 'Colors'},
+          // {path: 'colors', component: ColorComponent, title: 'Colors'},
+          {path: 'colors/:type', component: ColorComponent, title: 'Colors', data: {key: 'test vlaue'}},
           {path: 'borders', component: BorderComponent, title: 'Borders'},
           {path: 'animations', component: AnimationsComponent, title: 'Animations'},
           {path: 'other', component: OtherComponent, title: 'Others'},
