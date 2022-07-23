@@ -27,7 +27,6 @@
     "@angular-devkit/build-angular": "^14.0.6",
     "@angular/cli": "~14.0.6",
     "@angular/compiler-cli": "^14.0.0",
-    "@nrwl/nx-cloud": {},
     "@nrwl/workspace": "14.4.3",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.1.0",
@@ -38,5 +37,17 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "nx": "14.4.3",
     "typescript": "~4.7.2"
-  }
+  },
+  "description": "本次 **Angular 14 開發實戰：進階開發篇** 課程，將會從這份套完版後的 Angular 專案開始。開發環境請參考 [Angular 14 開發環境說明](https://gist.github.com/doggy8088/15e434b43992cf25a78700438743774a) 進行設定。",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackson99011/ng-advanced-220717.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackson99011/ng-advanced-220717/issues"
+  },
+  "homepage": "https://github.com/jackson99011/ng-advanced-220717#readme"
 }
