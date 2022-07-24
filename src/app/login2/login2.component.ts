@@ -65,7 +65,6 @@ export class Login2Component implements OnInit {
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
 
-    setTimeout(() => {
       //setValue格式要完全符合
       //this.form.setValue(this.data);
       //this.form.patchValue(this.data);
@@ -75,7 +74,6 @@ export class Login2Component implements OnInit {
         this.form.controls.profiles.push(this.makeProfile(profile.city, profile.tel));
       });
       this.form.setValue(this.data);
-    }, 2000);
   }
 
   ngOnDestroy(): void {
