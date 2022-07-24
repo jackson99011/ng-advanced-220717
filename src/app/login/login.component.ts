@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, NgForm, NgModel } from '@angular/forms';
 
 @Component({
   templateUrl: './login.component.html',
@@ -26,11 +26,21 @@ export class LoginComponent implements OnInit, OnDestroy {
     document.body.className = this.orig_body_class;
   }
 
-  doLogin() {
-    console.log('login');
-    localStorage.setItem('apikey', 'TEST');
-    var url = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    this.router.navigateByUrl(url);
+  doLogin(form: NgForm): void {
+    if (form.valid) {
+      console.log('login');
+      localStorage.setItem('apikey', 'TEST');
+      var url = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+      this.router.navigateByUrl(url);
+    }
+  }
+  //isInValid 和 isValid 要正向表示，不能反向表示，因有多個狀態非單純true false。
+  isInvalid(control: NgModel, form: NgForm) {
+      return control.invalid && (control.touched || form.submitted);
+  }
+
+  isValid(control: NgModel) {
+      return control.valid && control.touched;
   }
 
 }
