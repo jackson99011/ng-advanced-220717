@@ -24,7 +24,7 @@
                   form.disabled = {{ form.disabled }}
                   form.status = {{ form.status }}
                   form.errors = {{ form.errors | json }}</pre>
-                <form class="user" [formGroup]="form">
+                <form class="user" [formGroup]="form" #mForm="ngForm" (ngSubmit)="doLogin(mForm)">
                   <div class="form-group">
                     <input
                       type="email"
