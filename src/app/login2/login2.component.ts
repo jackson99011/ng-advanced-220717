@@ -18,7 +18,7 @@ export class Login2Component implements OnInit {
   form = this.fb.group({
     email: this.fb.control('', {
       validators: [Validators.email, Validators.required],
-      updateOn: 'blur'
+      updateOn: 'blur',
     }),
     password: this.fb.control('', {
       validators: [Validators.required, Validators.minLength(6), Validators.maxLength(32)]
@@ -32,13 +32,19 @@ export class Login2Component implements OnInit {
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
 
-    // setTimeout(() => {
-    //   this.form.setValue(this.data);
-    // }, 2000);
+    setTimeout(() => {
+      //setValue格式要完全符合
+      //this.form.setValue(this.data);
+      this.form.patchValue(this.data);
+    }, 2000);
   }
 
   ngOnDestroy(): void {
     document.body.className = this.orig_body_className;
+  }
+
+  resetForm(): void {
+    this.form.reset(this.data);
   }
 
   // doLogin(form: NgForm) {

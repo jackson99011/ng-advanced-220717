@@ -63,6 +63,11 @@ form.controls.email.errors = {{ form.controls.email.errors | json }}</pre>
                     Login
                   </a>
                   <hr />
+                  <button type="button" (click)="resetForm()"
+                  class="btn btn-google btn-user btn-block"
+                >
+                  Reset Form
+                </button>
                   <a
                     href="index.html"
                     class="btn btn-google btn-user btn-block"
