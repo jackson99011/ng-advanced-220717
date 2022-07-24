@@ -1,7 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, FormGroupDirective, UntypedFormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormGroupDirective, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+function forbiddenPassword(control: AbstractControl)
+{
+  if (!control.value) return null;
 
+  let words = ['will', 'duotify', '123'];
+
+  var result =  words.some(x => x.indexOf(control.value) >= 0)
+
+
+   if (result)
+     return {forbiddenPassword: true};
+   else
+    return null;
+}
 @Component({
   templateUrl: './login2.component.html',
   styleUrls: ['./login2.component.css']
@@ -35,15 +48,22 @@ export class Login2Component implements OnInit {
       updateOn: 'blur',
     }),
     password: this.fb.control('', {
-      validators: [Validators.required, Validators.minLength(6), Validators.maxLength(32)]
+      validators: [Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(32),
+        forbiddenPassword]
     }),
     isRememberMe: this.fb.control(true,{
     }),
     profiles: this.fb.array([
       this.makeProfile('Taipei', '0988-888888'),
       this.makeProfile('台中', '0933-333333'),
-    ])
-  });
+    ]),
+    }
+    ,{
+      validators: []
+    }
+  );
 
   makeProfile(city: string, tel:string) {
       return this.fb.group({
