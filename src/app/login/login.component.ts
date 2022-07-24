@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   templateUrl: './login.component.html',
@@ -8,6 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit, OnDestroy {
 
   orig_body_class = document.body.className;
+  data: any = {
+    email: '',
+    password: '123',
+    isRememberMe: true
+  }
+  form!: FormGroup;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 

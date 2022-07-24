@@ -10,6 +10,7 @@ import { NofoundComponent } from './nofound/nofound.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { UtilitiesModule } from './utilities/utilities.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UtilitiesModule } from './utilities/utilities.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UtilitiesModule
+    UtilitiesModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
