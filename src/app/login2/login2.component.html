@@ -12,6 +12,18 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
+                <pre>data = {{ data | json }}
+                  form.value = {{ form.value | json }}
+                  form.valid = {{ form.valid }}
+                  form.invalid = {{ form.invalid }}
+                  form.touched = {{ form.touched }}
+                  form.untouched = {{ form.untouched }}
+                  form.pristine = {{ form.pristine }}
+                  form.dirty = {{ form.dirty }}
+                  form.enabled = {{ form.enabled }}
+                  form.disabled = {{ form.disabled }}
+                  form.status = {{ form.status }}
+                  form.errors = {{ form.errors | json }}</pre>
                 <form class="user" [formGroup]="form">
                   <div class="form-group">
                     <input
@@ -56,6 +68,32 @@ form.controls.email.errors = {{ form.controls.email.errors | json }}</pre>
                       >
                     </div>
                   </div>
+                  <hr>
+                  <h1>Profile</h1>
+                  <ng-container formArrayName="profiles">
+                      <ng-container *ngFor="let profile of form.controls.profiles.controls; let i = index" [formGroupName]="i">
+                        <h2>{{i+1}}</h2>
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-control form-control-user"
+                            placeholder="請輸入城市"
+                            formControlName="city"
+                          />
+                        </div>
+
+                        <div class="form-group">
+                          <input
+                            type="text"
+                            class="form-control form-control-user"
+                            placeholder="請輸入電話"
+                            formControlName="tel"
+                          />
+                        </div>
+                      </ng-container>
+                  </ng-container>
+                  <button type="button" class="btn btn-outline-success" (click)="addProfile()">Add Profile</button>
+
                   <a
                     href="index.html"
                     class="btn btn-primary btn-user btn-block"

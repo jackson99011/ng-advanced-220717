@@ -24,8 +24,19 @@ export class Login2Component implements OnInit {
       validators: [Validators.required, Validators.minLength(6), Validators.maxLength(32)]
     }),
     isRememberMe: this.fb.control(true,{
-    })
+    }),
+    profiles: this.fb.array([
+      this.makeProfile('Taipei', '0988-888888'),
+      this.makeProfile('台中', '0933-333333'),
+    ])
   });
+
+  makeProfile(city: string, tel:string) {
+      return this.fb.group({
+        city: this.fb.control(city, {validators: [Validators.required]}),
+        tel: this.fb.control(tel, {validators: [Validators.required]})
+      })
+  }
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {}
 
@@ -57,6 +68,10 @@ export class Login2Component implements OnInit {
 
   resetForm(): void {
     this.form.reset(this.data);
+  }
+
+  addProfile() {
+    this.form.controls.profiles.push(this.makeProfile('', ''));
   }
 
   // doLogin(form: NgForm) {
