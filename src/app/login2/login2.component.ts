@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -41,6 +41,18 @@ export class Login2Component implements OnInit {
 
   ngOnDestroy(): void {
     document.body.className = this.orig_body_className;
+  }
+
+  fc(name: string) {
+    return this.form.get(name) as FormControl;
+  }
+
+  fg(name: string) {
+    return this.form.get(name) as FormGroup;
+  }
+
+  fa(name: string) {
+    return this.form.get(name) as FormArray;
   }
 
   resetForm(): void {
